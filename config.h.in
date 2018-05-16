@@ -1,0 +1,43 @@
+#ifndef _CONFIG_H_
+#define _CONFIG_H_
+
+#cmakedefine HAVE_SYS_PARAM_H @HAVE_SYS_PARAM_H@
+#cmakedefine HAVE_SYS_STAT_H @HAVE_SYS_STAT_H@
+#cmakedefine HAVE_ERRNO_H @HAVE_ERRNO_H@
+#cmakedefine HAVE_STDARG_H @HAVE_STDARG_H@
+#cmakedefine DEBUG @DEBUG@
+
+#define SUIDSH_VERSION_MAJOR @SUIDSH_VERSION_MAJOR@
+#define SUIDSH_VERSION_MINOR @SUIDSH_VERSION_MINOR@
+#define SUIDSH_VERSION_PATCH @SUIDSH_VERSION_PATCH@
+#cmakedefine CONFIG_LOCATION "@CONFIG_LOCATION@"
+
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <fcntl.h>
+#include <string.h>
+#include <pwd.h>
+#include <grp.h>
+
+#ifdef HAVE_SYS_PARAM_H
+#include <sys/param.h>
+#endif
+
+#ifdef HAVE_SYS_STAT_H
+#include <sys/stat.h>
+#endif
+
+#ifdef HAVE_ERRNO_H
+#include <errno.h>
+#endif
+
+#ifdef HAVE_STDARG_H
+#include <stdarg.h>
+#endif
+
+#ifndef CONFIG_LOCATION
+#define CONFIG_LOCATION "/etc/suidsh.conf"
+#endif
+
+#endif /* _CONFIG_H_ */
